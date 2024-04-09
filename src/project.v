@@ -19,31 +19,31 @@ module tt_um_couchand_chacha_state (
   assign uio_out = 0;
   assign uio_oe  = 0;
 
-  wire wr_full = uio_in[7];
+  //wire wr_full = uio_in[7];
   wire wr_addr = uio_in[6];
   wire [5:0] addr_in = uio_in[5:0];
 
-  reg [31:0] s_in[15:0];
-  wire [31:0] s_out[15:0];
+  //reg [31:0] s_in[15:0];
+  //wire [31:0] s_out[15:0];
 
   chacha_state my_instance (
     .clk(clk),
     .rst_n(rst_n),
-    .wr_full(wr_full),
-    .s_in(s_in),
-    .s_out(s_out),
+    //.wr_full(wr_full),
+    //.s_in(s_in),
+    //.s_out(s_out),
     .wr_addr(wr_addr),
     .addr_in(addr_in),
     .data_in(ui_in),
     .data_out(uo_out)
   );
 
-  always @(posedge clk) begin
-    if (!rst_n) begin
-      for (int i = 0; i < 16; i++) begin
-        s_in[i] <= 32'b0;
-      end
-    end
-  end
+  //always @(posedge clk) begin
+  //  if (!rst_n) begin
+  //    for (int i = 0; i < 16; i++) begin
+  //      s_in[i] <= 32'b0;
+  //    end
+  //  end
+  //end
 
 endmodule
